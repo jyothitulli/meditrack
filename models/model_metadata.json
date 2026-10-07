@@ -1,0 +1,26 @@
+{
+    "model_file": "baseline_rf_model.joblib",
+    "features": [
+        "current_stock",
+        "open_balance",
+        "current_consumption",
+        "current_received",
+        "current_stockout",
+        "consumption_roll3_mean",
+        "consumption_roll6_mean",
+        "consumption_roll3_std",
+        "stock_change_1m",
+        "stock_to_consumption_ratio",
+        "estimated_days_of_stock",
+        "historical_stockout_rate",
+        "facility_type_encoded",
+        "district_encoded"
+    ],
+    "target": "is_stockout_next_month",
+    "prediction_horizon": "Next Monthly Reporting Cycle (1 Month)",
+    "train_date_start": "2019-10-01",
+    "train_date_end": "2022-12-01",
+    "test_date_start": "2023-01-01",
+    "test_date_end": "2023-10-01",
+    "random_seed": 42
+}

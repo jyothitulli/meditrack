@@ -1,0 +1,49 @@
+================================================================================
+MEDITRACK - S2 DATASET BASELINE EVALUATION REPORT
+================================================================================
+Prediction Target: is_stockout_next_month (Next Monthly Reporting Cycle (1 Month))
+Model Algorithm:   RandomForestClassifier(n_estimators=100, max_depth=8, class_weight='balanced')
+Evaluation Set:    Chronological Hold-Out Test Set (Zero Temporal Leakage)
+Date Range:        2023-01-01 to 2023-10-01
+Total Test Count:  92,406 instances across 1,091 health facilities
+
+--------------------------------------------------------------------------------
+CLASSIFICATION PERFORMANCE METRICS:
+--------------------------------------------------------------------------------
+Accuracy:                 0.6542 (65.42%)
+Precision (Stockout):     0.2975 (29.75%)
+Recall (Stockout Class):  0.8195 (81.95%)
+F1-Score (Stockout):      0.4366
+ROC-AUC:                  0.8014
+PR-AUC:                   0.4486
+
+--------------------------------------------------------------------------------
+CONFUSION MATRIX:
+--------------------------------------------------------------------------------
+True Negatives  (Adequate Stock correctly predicted): 48,072
+False Positives (False Alarm early warnings):         29,228
+False Negatives (Missed Stock-out emergencies):       2,726
+True Positives  (Stock-outs correctly alerted):       12,380
+
+--------------------------------------------------------------------------------
+GLOBAL FEATURE IMPORTANCES (GINI IMPURITY DECREASE):
+--------------------------------------------------------------------------------
+  - estimated_days_of_stock        : 0.3375 (33.75%)
+  - stock_to_consumption_ratio     : 0.2575 (25.75%)
+  - historical_stockout_rate       : 0.1160 (11.60%)
+  - current_stock                  : 0.0984 (9.84%)
+  - open_balance                   : 0.0621 (6.21%)
+  - consumption_roll6_mean         : 0.0260 (2.60%)
+  - consumption_roll3_mean         : 0.0203 (2.03%)
+  - current_consumption            : 0.0201 (2.01%)
+  - stock_change_1m                : 0.0171 (1.71%)
+  - consumption_roll3_std          : 0.0159 (1.59%)
+  - district_encoded               : 0.0120 (1.20%)
+  - current_stockout               : 0.0081 (0.81%)
+  - current_received               : 0.0074 (0.74%)
+  - facility_type_encoded          : 0.0016 (0.16%)
+================================================================================
+ACADEMIC INTERPRETATION:
+- Recall on empirical stockout class is prioritized for healthcare decision-support.
+- Evaluated on real-world DHIS2 reporting data from 1,091 public health facilities.
+================================================================================

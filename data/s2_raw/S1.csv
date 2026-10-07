@@ -1,0 +1,1281 @@
+facility_type,hf_pk,district
+CHC,0,Port Loko
+CHP,1,Western Rural
+MCHP,2,Western Rural
+MCHP,3,Western Rural
+CHP,4,Western Rural
+CHP,5,Western Rural
+Clinic,6,Western Rural
+MCHP,7,Western Rural
+MCHP,8,Western Rural
+Clinic,9,Western Rural
+CHC,10,Western Rural
+MCHP,11,Western Rural
+Clinic,12,Western Rural
+MCHP,13,Western Rural
+MCHP,14,Western Rural
+MCHP,15,Western Rural
+MCHP,16,Western Rural
+CHP,17,Western Rural
+CHP,18,Western Rural
+CHP,19,Western Rural
+MCHP,20,Western Rural
+Clinic,22,Western Rural
+CHC,23,Western Rural
+MCHP,24,Western Rural
+CHC,25,Western Rural
+Clinic,26,Western Rural
+MCHP,27,Western Rural
+Hospital,28,Western Urban
+Clinic,29,Western Urban
+CHC,30,Western Urban
+CHP,31,Western Urban
+CHP,32,Western Urban
+MCHP,33,Western Urban
+MCHP,34,Western Urban
+Clinic,35,Western Urban
+Clinic,36,Western Urban
+Clinic,37,Western Urban
+CHC,38,Western Urban
+Hospital,39,Western Urban
+CHP,40,Western Urban
+CHC,41,Western Urban
+Clinic,42,Western Urban
+Clinic,43,Western Urban
+CHP,44,Western Urban
+Clinic,45,Western Urban
+Hospital,46,Western Urban
+Hospital,47,Western Urban
+Hospital,48,Western Urban
+Hospital,50,Western Urban
+CHC,51,Western Urban
+MCHP,52,Western Urban
+MCHP,53,Western Urban
+CHP,54,Western Urban
+CHP,55,Western Urban
+Clinic,56,Western Urban
+Hospital,57,Western Urban
+CHP,58,Western Urban
+Hospital,60,Western Urban
+CHC,61,Western Urban
+MCHP,62,Western Urban
+CHC,63,Western Urban
+CHC,64,Western Urban
+Clinic,65,Western Urban
+Clinic,66,Western Urban
+MCHP,68,Western Urban
+MCHP,69,Western Urban
+MCHP,70,Western Urban
+Hospital,71,Western Urban
+Clinic,72,Western Urban
+Hospital,73,Western Urban
+CHP,74,Kailahun
+CHP,75,Kailahun
+MCHP,76,Kailahun
+CHP,78,Kailahun
+CHP,79,Kailahun
+CHP,80,Kailahun
+CHP,81,Kailahun
+MCHP,82,Kailahun
+CHC,83,Kailahun
+CHP,84,Kailahun
+CHC,85,Kailahun
+CHC,86,Kailahun
+CHP,87,Kailahun
+CHC,88,Kailahun
+CHP,89,Kailahun
+CHP,90,Kailahun
+CHP,91,Kailahun
+CHP,92,Kailahun
+CHP,93,Kailahun
+CHP,94,Kailahun
+CHP,95,Kailahun
+CHP,96,Kailahun
+CHP,97,Kailahun
+MCHP,99,Kailahun
+CHC,100,Kailahun
+CHP,101,Kailahun
+CHC,102,Kailahun
+CHP,103,Kailahun
+CHC,104,Kenema
+CHP,105,Kailahun
+CHP,106,Kailahun
+CHP,107,Kailahun
+CHP,108,Koinadugu
+CHP,109,Kailahun
+CHP,110,Kailahun
+MCHP,111,Kailahun
+CHP,112,Kailahun
+Clinic,113,Kailahun
+CHC,114,Western Urban
+CHP,115,Kailahun
+CHP,116,Kailahun
+CHP,117,Kailahun
+MCHP,118,Kailahun
+CHP,119,Kailahun
+Hospital,120,Kailahun
+MCHP,122,Kailahun
+CHP,123,Kailahun
+CHP,124,Kailahun
+CHP,125,Kailahun
+CHP,126,Kailahun
+CHC,127,Kailahun
+CHP,128,Kailahun
+CHP,129,Kailahun
+CHC,130,Kailahun
+CHP,131,Kailahun
+MCHP,132,Kailahun
+CHP,133,Pujehun
+CHP,134,Kailahun
+CHP,135,Kailahun
+Clinic,136,Kailahun
+CHP,138,Kailahun
+CHP,139,Kailahun
+CHP,140,Kailahun
+CHC,142,Kenema
+CHP,143,Kenema
+MCHP,144,Kenema
+MCHP,145,Kenema
+CHC,146,Kenema
+CHP,147,Kenema
+MCHP,148,Kenema
+CHC,149,Kenema
+CHC,150,Kenema
+CHC,151,Kenema
+MCHP,152,Kenema
+MCHP,153,Kenema
+MCHP,154,Kenema
+MCHP,156,Kenema
+MCHP,157,Kenema
+CHC,158,Kenema
+CHP,159,Kenema
+CHC,160,Kenema
+CHP,161,Kenema
+CHP,162,Kenema
+MCHP,163,Kenema
+MCHP,165,Kenema
+MCHP,166,Kenema
+CHC,167,Kenema
+MCHP,168,Kenema
+MCHP,169,Kenema
+MCHP,170,Kenema
+CHP,171,Kenema
+CHC,172,Kenema
+CHC,173,Kenema
+MCHP,174,Kenema
+CHP,175,Kenema
+CHP,176,Kenema
+CHP,177,Kenema
+CHC,178,Kenema
+MCHP,179,Kenema
+CHP,183,Kenema
+CHP,184,Kenema
+MCHP,185,Kenema
+MCHP,186,Kenema
+MCHP,187,Kenema
+MCHP,188,Kenema
+CHP,189,Kenema
+MCHP,190,Kenema
+MCHP,191,Kenema
+CHP,192,Kenema
+CHC,193,Kenema
+CHP,194,Kenema
+MCHP,195,Kenema
+CHC,196,Kenema
+MCHP,197,Kenema
+CHC,198,Kenema
+CHP,199,Kenema
+CHC,200,Kenema
+MCHP,201,Kenema
+MCHP,202,Kenema
+MCHP,203,Kenema
+CHP,204,Kenema
+CHC,205,Kenema
+CHP,206,Kenema
+CHC,207,Kenema
+MCHP,208,Kenema
+CHP,209,Kenema
+MCHP,210,Kenema
+MCHP,211,Kenema
+MCHP,212,Kenema
+MCHP,213,Kenema
+MCHP,214,Kenema
+MCHP,215,Kenema
+CHC,216,Kenema
+MCHP,217,Kenema
+MCHP,218,Kenema
+CHP,219,Kenema
+CHP,220,Kenema
+MCHP,221,Kenema
+MCHP,222,Kenema
+CHP,223,Kenema
+MCHP,225,Kenema
+CHC,226,Kenema
+CHC,227,Kenema
+MCHP,228,Kenema
+MCHP,229,Kenema
+CHC,230,Kenema
+CHP,231,Kenema
+CHC,232,Kenema
+CHC,233,Kenema
+MCHP,234,Kenema
+CHP,235,Kenema
+MCHP,236,Kenema
+CHP,237,Kenema
+CHC,238,Kono
+MCHP,239,Kono
+CHP,240,Kono
+CHP,241,Kono
+CHP,242,Kono
+CHC,243,Kono
+CHP,244,Kono
+CHP,245,Kono
+Clinic,246,Kono
+CHP,247,Kono
+MCHP,248,Kono
+MCHP,249,Kono
+CHC,250,Kono
+MCHP,251,Kono
+MCHP,252,Kono
+MCHP,253,Kono
+MCHP,254,Kono
+MCHP,255,Kono
+MCHP,256,Kono
+CHC,257,Kono
+CHC,258,Kono
+CHP,259,Kono
+MCHP,260,Kono
+CHC,261,Kono
+CHC,262,Kono
+CHP,263,Kono
+CHC,264,Kono
+MCHP,265,Kono
+MCHP,266,Kono
+CHP,267,Kono
+Clinic,268,Kono
+CHP,269,Kono
+Hospital,270,Kono
+MCHP,272,Kono
+CHP,273,Kono
+CHC,274,Kono
+MCHP,275,Kono
+CHP,276,Kono
+MCHP,277,Kono
+MCHP,278,Kono
+CHC,279,Kono
+MCHP,281,Kono
+MCHP,282,Kono
+CHC,283,Kono
+MCHP,284,Kono
+CHC,285,Kono
+MCHP,287,Kono
+CHP,288,Kono
+MCHP,289,Kono
+CHP,290,Kono
+MCHP,291,Kono
+MCHP,292,Kono
+MCHP,293,Kono
+MCHP,294,Kono
+MCHP,295,Kono
+CHP,296,Kono
+CHP,297,Kono
+MCHP,298,Kono
+CHP,299,Kono
+CHC,300,Kono
+MCHP,301,Kono
+MCHP,302,Kenema
+MCHP,303,Kono
+Clinic,304,Kono
+CHP,305,Kono
+CHP,306,Kono
+MCHP,307,Kono
+CHC,308,Kono
+CHC,309,Kono
+CHP,310,Bo
+MCHP,311,Bo
+CHP,312,Bo
+CHC,313,Bo
+MCHP,314,Bo
+MCHP,315,Bo
+MCHP,316,Bo
+MCHP,317,Bo
+Hospital,318,Bo
+MCHP,319,Bo
+MCHP,321,Bo
+MCHP,322,Bo
+CHP,323,Bo
+Hospital,324,Bo
+CHC,325,Bo
+CHP,327,Bo
+MCHP,329,Bo
+MCHP,330,Bo
+CHP,331,Bo
+MCHP,332,Bo
+MCHP,333,Tonkolili
+CHP,334,Bo
+MCHP,335,Bo
+MCHP,336,Bo
+CHP,337,Bo
+CHC,338,Bo
+MCHP,339,Bo
+MCHP,340,Bo
+MCHP,341,Bo
+MCHP,342,Bo
+CHP,343,Bo
+CHC,344,Bo
+CHC,345,Bo
+Hospital,346,Bo
+MCHP,347,Bo
+CHC,348,Bo
+MCHP,349,Bo
+CHP,350,Bo
+MCHP,351,Bo
+CHC,352,Bo
+MCHP,354,Bo
+MCHP,355,Bo
+MCHP,356,Bo
+CHP,357,Bo
+MCHP,358,Bo
+MCHP,359,Bo
+MCHP,360,Bo
+MCHP,361,Bo
+MCHP,362,Bo
+Hospital,363,Bo
+MCHP,364,Bo
+MCHP,365,Bo
+MCHP,366,Bo
+CHC,367,Bo
+CHP,368,Bo
+MCHP,369,Bo
+CHP,371,Bo
+MCHP,372,Bo
+MCHP,373,Bo
+MCHP,374,Bo
+MCHP,375,Bo
+CHP,376,Bo
+MCHP,378,Bo
+CHP,379,Bo
+MCHP,380,Bo
+CHP,381,Bo
+Hospital,382,Bo
+MCHP,383,Bo
+MCHP,384,Bo
+MCHP,385,Bo
+CHP,386,Bo
+MCHP,387,Bo
+MCHP,388,Bo
+MCHP,389,Bo
+CHP,390,Bo
+CHC,391,Bo
+MCHP,392,Bo
+MCHP,393,Bo
+MCHP,394,Bo
+CHP,395,Bo
+CHP,396,Bo
+CHC,397,Bo
+CHC,398,Bo
+CHC,399,Bo
+MCHP,400,Bo
+MCHP,401,Bo
+CHP,402,Bo
+CHP,403,Bo
+CHP,404,Bo
+CHP,406,Bo
+MCHP,408,Bo
+CHC,409,Bo
+CHP,410,Bo
+CHC,411,Bo
+CHC,412,Bo
+MCHP,413,Bo
+CHP,414,Bo
+CHC,415,Bo
+CHP,416,Bo
+CHP,417,Bo
+CHP,418,Bo
+CHC,419,Bo
+CHP,420,Bo
+CHP,421,Bo
+CHC,422,Bo
+MCHP,423,Bo
+CHC,424,Bo
+CHP,425,Bo
+MCHP,426,Bo
+MCHP,427,Bo
+MCHP,428,Bo
+MCHP,429,Bo
+CHC,430,Bo
+MCHP,431,Bo
+CHC,432,Bo
+MCHP,433,Kono
+CHC,434,Bo
+MCHP,435,Bo
+CHP,437,Bonthe
+CHC,438,Bonthe
+CHC,439,Bonthe
+MCHP,440,Bonthe
+Hospital,442,Bonthe
+CHP,443,Bonthe
+MCHP,444,Bonthe
+MCHP,445,Bonthe
+CHC,446,Bonthe
+CHP,447,Bonthe
+CHC,448,Bonthe
+CHP,449,Bonthe
+CHC,450,Bonthe
+CHP,451,Bonthe
+MCHP,452,Bonthe
+CHP,453,Bonthe
+MCHP,454,Bonthe
+MCHP,455,Bonthe
+MCHP,456,Bonthe
+CHC,457,Bonthe
+CHP,459,Bonthe
+CHP,460,Bonthe
+MCHP,461,Bonthe
+CHP,462,Bonthe
+Hospital,463,Bonthe
+MCHP,465,Bonthe
+CHP,466,Bonthe
+MCHP,467,Bonthe
+MCHP,468,Bonthe
+CHC,469,Bonthe
+MCHP,470,Bonthe
+MCHP,471,Bonthe
+CHC,472,Bonthe
+Hospital,473,Bonthe
+MCHP,474,Bonthe
+CHP,475,Bonthe
+MCHP,476,Bonthe
+MCHP,477,Bonthe
+MCHP,478,Bonthe
+MCHP,479,Bonthe
+MCHP,480,Bonthe
+CHP,481,Bonthe
+CHC,482,Bonthe
+CHP,483,Bonthe
+CHC,484,Bonthe
+CHP,485,Bonthe
+CHP,486,Bonthe
+CHP,487,Bonthe
+MCHP,488,Bonthe
+CHP,489,Bonthe
+CHC,490,Bonthe
+CHP,491,Bonthe
+CHP,492,Bonthe
+CHP,493,Bonthe
+MCHP,495,Moyamba
+CHC,496,Moyamba
+CHP,497,Moyamba
+MCHP,498,Moyamba
+MCHP,499,Moyamba
+CHC,500,Moyamba
+CHC,501,Moyamba
+CHP,502,Moyamba
+CHP,503,Moyamba
+MCHP,504,Moyamba
+CHP,505,Moyamba
+CHP,506,Moyamba
+CHC,507,Moyamba
+CHC,508,Moyamba
+MCHP,509,Moyamba
+MCHP,510,Moyamba
+CHP,511,Moyamba
+MCHP,512,Moyamba
+MCHP,513,Moyamba
+CHC,514,Moyamba
+CHP,515,Moyamba
+MCHP,516,Moyamba
+MCHP,517,Moyamba
+CHP,518,Moyamba
+MCHP,519,Moyamba
+MCHP,520,Moyamba
+CHP,521,Moyamba
+MCHP,522,Kailahun
+CHP,523,Moyamba
+CHP,524,Moyamba
+MCHP,525,Moyamba
+CHC,526,Moyamba
+MCHP,527,Moyamba
+MCHP,528,Moyamba
+MCHP,529,Moyamba
+MCHP,530,Moyamba
+CHP,531,Moyamba
+MCHP,532,Moyamba
+MCHP,533,Moyamba
+MCHP,534,Moyamba
+CHP,535,Moyamba
+MCHP,536,Moyamba
+MCHP,537,Moyamba
+CHP,538,Moyamba
+CHC,540,Moyamba
+MCHP,541,Moyamba
+MCHP,542,Moyamba
+MCHP,543,Moyamba
+MCHP,544,Moyamba
+CHP,545,Moyamba
+MCHP,546,Moyamba
+CHC,548,Moyamba
+MCHP,549,Moyamba
+CHP,550,Moyamba
+MCHP,551,Moyamba
+CHP,552,Moyamba
+MCHP,553,Moyamba
+MCHP,554,Moyamba
+MCHP,555,Moyamba
+MCHP,556,Moyamba
+MCHP,557,Moyamba
+CHC,558,Moyamba
+CHC,560,Moyamba
+CHP,561,Moyamba
+MCHP,562,Moyamba
+MCHP,563,Moyamba
+CHP,564,Moyamba
+MCHP,565,Moyamba
+CHC,566,Bo
+CHC,567,Moyamba
+MCHP,568,Moyamba
+MCHP,569,Moyamba
+CHP,570,Moyamba
+CHC,571,Moyamba
+MCHP,572,Moyamba
+CHP,573,Moyamba
+CHC,574,Moyamba
+MCHP,575,Kenema
+CHC,576,Moyamba
+CHC,577,Moyamba
+CHP,578,Moyamba
+MCHP,579,Moyamba
+CHC,580,Moyamba
+CHP,581,Moyamba
+MCHP,582,Moyamba
+MCHP,583,Moyamba
+MCHP,584,Moyamba
+MCHP,586,Moyamba
+CHP,587,Moyamba
+MCHP,588,Moyamba
+CHP,589,Moyamba
+CHC,590,Pujehun
+CHC,591,Pujehun
+CHC,592,Pujehun
+MCHP,593,Pujehun
+MCHP,594,Pujehun
+MCHP,595,Pujehun
+MCHP,596,Pujehun
+CHC,597,Pujehun
+MCHP,598,Pujehun
+MCHP,599,Pujehun
+MCHP,600,Pujehun
+MCHP,601,Pujehun
+MCHP,602,Pujehun
+MCHP,603,Pujehun
+MCHP,604,Pujehun
+CHP,605,Pujehun
+CHP,606,Pujehun
+CHP,607,Pujehun
+CHP,608,Pujehun
+MCHP,609,Pujehun
+CHP,611,Pujehun
+MCHP,612,Pujehun
+CHC,613,Pujehun
+CHP,614,Pujehun
+MCHP,615,Pujehun
+MCHP,616,Pujehun
+CHP,617,Pujehun
+CHP,618,Pujehun
+CHC,619,Pujehun
+CHC,620,Pujehun
+MCHP,621,Pujehun
+MCHP,622,Pujehun
+MCHP,623,Pujehun
+MCHP,624,Pujehun
+MCHP,625,Pujehun
+CHP,626,Pujehun
+MCHP,627,Pujehun
+MCHP,628,Pujehun
+CHC,629,Pujehun
+CHC,630,Pujehun
+MCHP,631,Pujehun
+MCHP,632,Pujehun
+CHP,633,Pujehun
+MCHP,634,Pujehun
+MCHP,635,Pujehun
+MCHP,636,Pujehun
+CHC,637,Pujehun
+Hospital,638,Pujehun
+MCHP,639,Pujehun
+MCHP,641,Pujehun
+MCHP,642,Pujehun
+MCHP,643,Pujehun
+MCHP,644,Pujehun
+MCHP,645,Pujehun
+CHP,646,Pujehun
+MCHP,647,Pujehun
+MCHP,648,Pujehun
+MCHP,649,Pujehun
+MCHP,650,Pujehun
+MCHP,651,Pujehun
+MCHP,652,Pujehun
+MCHP,653,Pujehun
+MCHP,654,Pujehun
+CHC,655,Pujehun
+Clinic,657,Bombali
+CHP,658,Bombali
+CHC,659,Karene
+CHC,660,Bombali
+MCHP,661,Bombali
+MCHP,662,Bombali
+MCHP,663,Bombali
+CHP,664,Karene
+CHC,665,Karene
+MCHP,666,Bombali
+CHP,667,Bombali
+MCHP,668,Karene
+CHC,669,Karene
+CHC,670,Bombali
+CHC,671,Bombali
+MCHP,672,Karene
+MCHP,673,Karene
+MCHP,674,Karene
+MCHP,675,Bombali
+CHP,676,Karene
+MCHP,677,Bombali
+MCHP,678,Bombali
+CHC,679,Bombali
+MCHP,680,Bombali
+MCHP,681,Karene
+MCHP,682,Bombali
+MCHP,683,Karene
+CHC,684,Bombali
+CHC,685,Bombali
+MCHP,686,Karene
+Hospital,687,Karene
+CHP,688,Karene
+CHC,689,Karene
+MCHP,690,Bombali
+MCHP,691,Karene
+CHP,692,Karene
+MCHP,693,Bombali
+MCHP,694,Bombali
+MCHP,695,Karene
+MCHP,696,Bombali
+CHC,697,Karene
+CHP,698,Bombali
+CHP,699,Bombali
+CHP,700,Bombali
+MCHP,701,Bombali
+CHP,702,Bombali
+MCHP,703,Bombali
+CHP,704,Bombali
+MCHP,705,Bombali
+MCHP,706,Karene
+CHP,707,Karene
+MCHP,708,Bombali
+CHP,709,Bombali
+MCHP,710,Bombali
+CHC,711,Karene
+MCHP,712,Bombali
+MCHP,713,Bombali
+MCHP,714,Karene
+CHP,716,Karene
+CHP,717,Tonkolili
+MCHP,718,Bombali
+CHP,719,Port Loko
+MCHP,720,Bombali
+Hospital,721,Bombali
+Clinic,722,Karene
+Clinic,723,Bombali
+MCHP,725,Bombali
+CHP,726,Bombali
+CHP,727,Bombali
+CHP,728,Tonkolili
+MCHP,729,Bombali
+MCHP,730,Karene
+MCHP,731,Bombali
+MCHP,732,Bombali
+Clinic,733,Bombali
+CHC,734,Bombali
+MCHP,735,Karene
+MCHP,736,Bombali
+CHP,737,Karene
+MCHP,738,Bombali
+MCHP,739,Bombali
+CHC,740,Bombali
+MCHP,741,Bombali
+CHP,742,Bombali
+CHP,743,Bombali
+CHP,745,Bombali
+Clinic,746,Bombali
+CHC,747,Karene
+MCHP,749,Karene
+CHP,750,Bombali
+CHC,751,Bombali
+MCHP,752,Bombali
+CHP,753,Bombali
+MCHP,754,Karene
+CHC,755,Bombali
+CHC,756,Karene
+MCHP,757,Karene
+CHP,758,Bombali
+MCHP,759,Bombali
+CHP,760,Bombali
+CHP,761,Bombali
+CHP,762,Bombali
+CHP,764,Bombali
+CHC,767,Bombali
+MCHP,768,Kambia
+MCHP,770,Kambia
+CHP,771,Kambia
+CHC,772,Kambia
+CHP,773,Kambia
+CHP,774,Kambia
+MCHP,775,Kambia
+CHC,776,Kambia
+MCHP,777,Kambia
+MCHP,778,Kambia
+CHP,779,Kambia
+MCHP,780,Kambia
+MCHP,781,Kambia
+CHC,782,Kambia
+MCHP,783,Kambia
+MCHP,784,Kambia
+Hospital,785,Kambia
+Clinic,786,Kambia
+CHC,787,Kambia
+MCHP,788,Kambia
+CHP,789,Kambia
+CHC,790,Kambia
+MCHP,791,Kambia
+CHC,792,Kambia
+CHP,793,Kambia
+MCHP,794,Kambia
+MCHP,795,Kambia
+CHC,796,Kambia
+CHC,797,Kambia
+CHP,798,Kambia
+CHC,799,Kambia
+CHP,800,Kambia
+CHC,801,Kambia
+MCHP,802,Kambia
+MCHP,803,Kambia
+CHC,804,Kambia
+MCHP,805,Kambia
+CHC,806,Kambia
+CHP,807,Kambia
+CHP,808,Kambia
+MCHP,809,Kambia
+MCHP,810,Kambia
+MCHP,811,Kambia
+CHP,812,Kambia
+MCHP,813,Kambia
+MCHP,814,Kambia
+MCHP,815,Kambia
+CHP,816,Kambia
+MCHP,817,Kambia
+CHC,818,Kambia
+MCHP,819,Kambia
+CHP,820,Kambia
+CHP,821,Kambia
+MCHP,822,Kambia
+MCHP,823,Kambia
+MCHP,824,Kambia
+MCHP,825,Kambia
+CHP,826,Kambia
+MCHP,827,Kambia
+MCHP,828,Kambia
+MCHP,829,Kambia
+CHP,830,Kambia
+MCHP,831,Karene
+MCHP,832,Kambia
+MCHP,833,Kambia
+MCHP,834,Koinadugu
+CHP,835,Koinadugu
+MCHP,836,Koinadugu
+CHC,837,Koinadugu
+MCHP,838,Falaba
+CHP,839,Falaba
+CHP,840,Bo
+CHP,841,Koinadugu
+MCHP,842,Falaba
+MCHP,843,Falaba
+CHP,844,Falaba
+CHC,845,Koinadugu
+CHC,846,Falaba
+CHP,847,Koinadugu
+MCHP,849,Falaba
+Clinic,850,Koinadugu
+MCHP,851,Falaba
+MCHP,852,Koinadugu
+CHP,853,Falaba
+MCHP,854,Falaba
+MCHP,855,Falaba
+CHP,856,Falaba
+MCHP,857,Falaba
+CHP,858,Koinadugu
+MCHP,860,Koinadugu
+MCHP,861,Koinadugu
+MCHP,862,Koinadugu
+MCHP,863,Falaba
+MCHP,864,Falaba
+CHP,865,Falaba
+MCHP,866,Koinadugu
+CHP,867,Falaba
+CHP,868,Falaba
+CHP,869,Koinadugu
+CHP,870,Koinadugu
+CHP,871,Falaba
+CHP,872,Falaba
+CHC,873,Koinadugu
+MCHP,874,Koinadugu
+MCHP,875,Falaba
+CHP,876,Koinadugu
+CHP,877,Koinadugu
+CHC,878,Falaba
+CHP,879,Koinadugu
+MCHP,881,Koinadugu
+MCHP,882,Falaba
+CHP,883,Falaba
+CHP,884,Falaba
+CHC,885,Falaba
+CHC,886,Falaba
+MCHP,887,Falaba
+MCHP,888,Koinadugu
+CHP,889,Koinadugu
+MCHP,891,Falaba
+MCHP,892,Falaba
+MCHP,893,Falaba
+CHP,894,Koinadugu
+CHP,895,Koinadugu
+MCHP,896,Falaba
+MCHP,897,Falaba
+CHP,898,Koinadugu
+CHP,899,Koinadugu
+CHC,900,Koinadugu
+CHP,901,Falaba
+CHP,903,Koinadugu
+CHP,904,Port Loko
+CHP,905,Port Loko
+MCHP,906,Port Loko
+MCHP,907,Port Loko
+CHC,908,Port Loko
+CHP,909,Port Loko
+MCHP,910,Karene
+CHP,912,Port Loko
+MCHP,913,Port Loko
+MCHP,916,Karene
+MCHP,917,Port Loko
+CHP,918,Port Loko
+CHP,919,Port Loko
+MCHP,920,Port Loko
+MCHP,921,Port Loko
+CHC,922,Karene
+MCHP,923,Karene
+CHP,924,Port Loko
+CHP,925,Port Loko
+MCHP,926,Port Loko
+MCHP,927,Port Loko
+MCHP,928,Port Loko
+CHP,929,Karene
+CHP,930,Port Loko
+CHP,931,Port Loko
+CHC,932,Port Loko
+CHP,933,Port Loko
+Hospital,934,Port Loko
+CHP,935,Port Loko
+CHC,936,Port Loko
+Hospital,937,Port Loko
+MCHP,939,Port Loko
+CHP,940,Port Loko
+MCHP,941,Port Loko
+MCHP,942,Karene
+CHP,943,Port Loko
+MCHP,944,Port Loko
+MCHP,945,Port Loko
+CHP,946,Port Loko
+MCHP,947,Port Loko
+MCHP,949,Karene
+Hospital,950,Port Loko
+CHC,951,Port Loko
+MCHP,952,Port Loko
+MCHP,953,Port Loko
+MCHP,954,Port Loko
+CHP,955,Port Loko
+CHP,956,Port Loko
+CHP,957,Port Loko
+MCHP,958,Port Loko
+CHP,959,Port Loko
+CHC,960,Port Loko
+MCHP,961,Port Loko
+MCHP,962,Port Loko
+MCHP,963,Karene
+MCHP,964,Port Loko
+CHP,965,Port Loko
+CHC,966,Port Loko
+MCHP,967,Port Loko
+MCHP,968,Port Loko
+CHP,969,Karene
+MCHP,970,Port Loko
+MCHP,971,Karene
+CHC,972,Port Loko
+CHC,973,Port Loko
+MCHP,974,Port Loko
+CHP,975,Port Loko
+MCHP,976,Port Loko
+MCHP,977,Port Loko
+MCHP,979,Tonkolili
+CHP,980,Port Loko
+CHC,981,Port Loko
+CHP,982,Port Loko
+CHP,984,Port Loko
+CHP,985,Port Loko
+CHP,986,Port Loko
+CHC,987,Port Loko
+CHC,988,Port Loko
+CHP,991,Port Loko
+Hospital,992,Port Loko
+MCHP,993,Port Loko
+MCHP,994,Port Loko
+CHP,995,Karene
+MCHP,996,Port Loko
+MCHP,997,Port Loko
+MCHP,998,Port Loko
+CHC,999,Karene
+CHP,1000,Port Loko
+CHC,1001,Port Loko
+CHP,1002,Port Loko
+MCHP,1004,Port Loko
+CHC,1005,Port Loko
+MCHP,1006,Tonkolili
+CHC,1007,Tonkolili
+CHP,1008,Tonkolili
+CHC,1009,Tonkolili
+CHP,1010,Tonkolili
+MCHP,1011,Tonkolili
+MCHP,1012,Tonkolili
+MCHP,1013,Bombali
+MCHP,1014,Tonkolili
+MCHP,1015,Tonkolili
+CHP,1016,Tonkolili
+CHP,1017,Tonkolili
+MCHP,1018,Tonkolili
+CHC,1019,Tonkolili
+MCHP,1020,Tonkolili
+MCHP,1021,Tonkolili
+CHC,1022,Tonkolili
+CHP,1023,Tonkolili
+MCHP,1024,Tonkolili
+MCHP,1025,Tonkolili
+MCHP,1026,Tonkolili
+MCHP,1027,Tonkolili
+MCHP,1028,Tonkolili
+MCHP,1029,Tonkolili
+CHP,1030,Tonkolili
+MCHP,1031,Tonkolili
+Hospital,1032,Tonkolili
+Clinic,1033,Tonkolili
+CHC,1034,Tonkolili
+MCHP,1035,Tonkolili
+MCHP,1036,Tonkolili
+CHP,1037,Tonkolili
+MCHP,1038,Tonkolili
+CHP,1039,Tonkolili
+MCHP,1040,Tonkolili
+CHP,1041,Tonkolili
+MCHP,1042,Tonkolili
+MCHP,1043,Tonkolili
+MCHP,1044,Tonkolili
+MCHP,1045,Tonkolili
+MCHP,1046,Tonkolili
+Hospital,1047,Tonkolili
+MCHP,1048,Tonkolili
+MCHP,1049,Tonkolili
+MCHP,1050,Tonkolili
+CHC,1051,Tonkolili
+MCHP,1052,Tonkolili
+CHC,1054,Tonkolili
+MCHP,1055,Tonkolili
+MCHP,1056,Tonkolili
+MCHP,1057,Tonkolili
+CHC,1058,Tonkolili
+MCHP,1059,Tonkolili
+MCHP,1060,Tonkolili
+CHP,1061,Tonkolili
+MCHP,1062,Tonkolili
+CHP,1064,Tonkolili
+MCHP,1065,Tonkolili
+CHP,1066,Tonkolili
+MCHP,1067,Tonkolili
+CHP,1068,Tonkolili
+CHP,1069,Tonkolili
+CHP,1070,Tonkolili
+MCHP,1071,Tonkolili
+MCHP,1072,Tonkolili
+CHC,1073,Tonkolili
+MCHP,1074,Tonkolili
+MCHP,1075,Tonkolili
+MCHP,1076,Tonkolili
+CHC,1077,Tonkolili
+Hospital,1078,Tonkolili
+MCHP,1079,Tonkolili
+MCHP,10000,Tonkolili
+CHC,10001,Tonkolili
+CHP,10002,Tonkolili
+MCHP,10003,Tonkolili
+MCHP,10004,Tonkolili
+MCHP,10006,Tonkolili
+MCHP,10007,Tonkolili
+MCHP,10008,Tonkolili
+MCHP,10009,Tonkolili
+MCHP,10010,Tonkolili
+MCHP,10011,Tonkolili
+MCHP,10013,Tonkolili
+CHP,10014,Tonkolili
+CHP,10015,Tonkolili
+CHP,10017,Tonkolili
+CHP,10018,Tonkolili
+MCHP,10019,Tonkolili
+MCHP,10020,Tonkolili
+CHP,10021,Tonkolili
+MCHP,10023,Tonkolili
+CHP,10024,Tonkolili
+MCHP,10025,Tonkolili
+MCHP,10027,Port Loko
+CHC,10030,Port Loko
+MCHP,10032,Port Loko
+MCHP,10033,Port Loko
+MCHP,10034,Port Loko
+MCHP,10035,Port Loko
+MCHP,10039,Falaba
+MCHP,10040,Falaba
+CHC,10041,Falaba
+CHC,10044,Koinadugu
+CHP,10046,Koinadugu
+Clinic,10047,Koinadugu
+CHP,10049,Koinadugu
+MCHP,10050,Falaba
+MCHP,10060,Karene
+CHP,10062,Karene
+MCHP,10063,Karene
+MCHP,10064,Karene
+MCHP,10065,Karene
+MCHP,10067,Pujehun
+MCHP,10068,Pujehun
+CHC,10075,Pujehun
+CHP,10076,Pujehun
+MCHP,10078,Pujehun
+MCHP,10079,Pujehun
+CHC,10080,Pujehun
+MCHP,10081,Pujehun
+CHP,10082,Pujehun
+MCHP,10083,Pujehun
+CHC,10086,Western Rural
+CHC,10087,Western Rural
+CHP,10088,Western Rural
+CHP,10089,Western Rural
+Clinic,10092,Western Rural
+MCHP,10094,Western Rural
+Clinic,10095,Western Rural
+CHC,10097,Western Rural
+Clinic,10098,Western Rural
+CHP,10100,Western Rural
+CHP,10101,Western Rural
+MCHP,10104,Western Rural
+CHP,10105,Western Rural
+Hospital,10107,Western Rural
+CHP,10108,Western Rural
+CHC,10109,Western Rural
+Clinic,10110,Western Rural
+CHC,10112,Western Rural
+Clinic,10113,Western Rural
+MCHP,10114,Western Rural
+CHP,10115,Western Rural
+Hospital,10116,Western Rural
+MCHP,10117,Western Rural
+CHC,10118,Western Rural
+Hospital,10123,Western Urban
+CHP,10127,Western Urban
+CHC,10128,Western Urban
+CHP,10129,Western Urban
+CHC,10130,Western Urban
+CHC,10131,Western Urban
+CHC,10133,Western Urban
+CHP,10134,Western Urban
+Clinic,10137,Western Urban
+Clinic,10139,Western Urban
+Clinic,10141,Western Urban
+CHC,10144,Western Urban
+CHP,10149,Western Urban
+CHP,10151,Western Urban
+CHC,10156,Western Urban
+MCHP,10158,Western Urban
+MCHP,10159,Western Urban
+MCHP,10160,Western Urban
+CHC,10161,Western Urban
+MCHP,10163,Kambia
+MCHP,10164,Kambia
+Clinic,10165,Kambia
+MCHP,10166,Kambia
+MCHP,10167,Kambia
+MCHP,10169,Kambia
+MCHP,10171,Kenema
+MCHP,10172,Kenema
+MCHP,10173,Kenema
+CHC,10174,Kenema
+CHP,10175,Kenema
+CHP,10177,Kenema
+MCHP,10178,Kenema
+CHP,10179,Kenema
+MCHP,10180,Kenema
+CHP,10181,Kenema
+CHP,10182,Kenema
+MCHP,10183,Kenema
+MCHP,10184,Kenema
+CHP,10185,Kenema
+MCHP,10186,Kenema
+MCHP,10187,Kenema
+CHC,10188,Kenema
+CHP,10189,Kenema
+MCHP,10190,Kenema
+MCHP,10191,Kenema
+MCHP,10192,Kenema
+CHC,10193,Kenema
+CHC,10194,Kenema
+CHP,10195,Bonthe
+CHC,10197,Bonthe
+CHC,10212,Bonthe
+CHP,10214,Bonthe
+CHC,10215,Bonthe
+CHP,10220,Moyamba
+CHP,10221,Moyamba
+MCHP,10222,Moyamba
+MCHP,10224,Moyamba
+MCHP,10225,Moyamba
+CHP,10226,Moyamba
+CHP,10227,Moyamba
+CHP,10228,Moyamba
+CHP,10229,Moyamba
+MCHP,10230,Moyamba
+MCHP,10231,Moyamba
+MCHP,10232,Moyamba
+CHP,10234,Bombali
+MCHP,10238,Bombali
+MCHP,10239,Bombali
+MCHP,10241,Bombali
+MCHP,10245,Bombali
+CHC,10246,Bombali
+CHC,10247,Bombali
+MCHP,10248,Bo
+MCHP,10249,Bo
+MCHP,10250,Bo
+MCHP,10253,Bo
+MCHP,10254,Bo
+MCHP,10255,Bo
+MCHP,10257,Bo
+CHC,10261,Bo
+MCHP,10262,Bo
+CHP,10263,Bo
+CHP,10270,Bo
+CHP,10271,Bo
+CHP,10274,Bo
+CHP,10275,Bo
+CHP,10277,Kailahun
+CHP,10278,Kailahun
+CHP,10279,Kailahun
+MCHP,10280,Kailahun
+MCHP,10281,Kailahun
+CHP,10282,Kailahun
+MCHP,10283,Kailahun
+MCHP,10284,Kailahun
+CHC,10286,Kailahun
+MCHP,10287,Kailahun
+CHP,10288,Kailahun
+CHC,10289,Kailahun
+CHC,10290,Kailahun
+CHP,10291,Kailahun
+CHP,10292,Kailahun
+CHP,10294,Kailahun
+CHP,10295,Kailahun
+CHP,10297,Kailahun
+CHC,10298,Kailahun
+CHP,10299,Kailahun
+MCHP,10300,Kailahun
+CHC,10302,Kailahun
+CHP,10303,Kailahun
+CHP,10304,Kailahun
+MCHP,10308,Kono
+CHP,10310,Kono
+CHC,10311,Kono
+MCHP,10312,Kono
+MCHP,10313,Kono
+MCHP,10314,Kono
+MCHP,10315,Kono
+MCHP,10316,Kono
+CHP,10318,Kono
+CHC,10320,Kono
+CHC,10321,Kono
+MCHP,10323,Kono
+CHC,10324,Kono
+MCHP,10325,Kono
+MCHP,10327,Kono
+MCHP,10328,Kono
+CHP,10330,Kono
+MCHP,10331,Kono
+CHC,10334,Pujehun
+MCHP,10335,Pujehun
+CHC,10336,Pujehun
+CHP,10337,Kenema
+Hospital,10338,Bo
+CHP,10339,Moyamba
+MCHP,10340,Kenema
+Clinic,10341,Kenema
+Clinic,10342,Kenema
+CHC,10343,Bo
+CHC,10344,Kenema
+CHC,10345,Moyamba
+MCHP,10346,Moyamba
+Hospital,10347,Kailahun
+CHP,10348,Western Rural
+MCHP,10349,Tonkolili
+Clinic,10350,Western Rural
+Clinic,10351,Western Rural
+CHC,10352,Western Rural
+CHP,10353,Kailahun
+Hospital,10354,Western Urban
+CHC,10355,Tonkolili
+MCHP,10356,Tonkolili
+Clinic,10357,Western Urban
+CHC,10358,Tonkolili
+Hospital,10359,Western Urban
+MCHP,10360,Western Urban
+MCHP,10361,Tonkolili
+CHP,10362,Port Loko
+MCHP,10363,Tonkolili
+CHP,10364,Port Loko
+CHC,10365,Port Loko
+Clinic,10366,Tonkolili
+CHP,10367,Port Loko
+MCHP,10368,Karene
+MCHP,10369,Karene
+MCHP,10370,Karene
+MCHP,10371,Karene
+CHC,10372,Koinadugu
+Clinic,10373,Koinadugu
+MCHP,20373,Bombali
+CHP,20374,Bombali
+CHP,20375,Bombali
+Hospital,20376,Port Loko
+CHP,20377,Bombali
+MCHP,20378,Bombali
+MCHP,20379,Bombali
+Clinic,20380,Bombali
+CHP,20381,Koinadugu
+MCHP,20382,Koinadugu
+MCHP,20383,Koinadugu
+MCHP,20384,Koinadugu
+MCHP,20385,Koinadugu
+Hospital,30385,Western Rural
+Hospital,30386,Koinadugu
+Hospital,30387,Kenema
+Hospital,30388,Kenema
+Hospital,30389,Moyamba
+Hospital,30390,Moyamba
+Hospital,30391,Moyamba

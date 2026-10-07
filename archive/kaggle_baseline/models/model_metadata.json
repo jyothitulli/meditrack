@@ -1,0 +1,26 @@
+{
+    "model_file": "baseline_rf_model.joblib",
+    "features": [
+        "current_stock",
+        "stock_change_7d",
+        "stock_min_14d",
+        "stock_max_14d",
+        "stock_std_14d",
+        "consumption_7d_mean",
+        "consumption_14d_mean",
+        "consumption_30d_mean",
+        "consumption_7d_std",
+        "consumption_velocity",
+        "days_since_last_replenishment",
+        "last_replenishment_qty",
+        "estimated_days_of_stock",
+        "consumption_to_stock_ratio"
+    ],
+    "target": "is_stockout_next_14d",
+    "prediction_horizon_days": 14,
+    "train_date_start": "2014-01-02",
+    "train_date_end": "2018-08-01",
+    "test_date_start": "2018-08-02",
+    "test_date_end": "2019-09-24",
+    "random_seed": 42
+}

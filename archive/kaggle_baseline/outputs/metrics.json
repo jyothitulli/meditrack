@@ -1,0 +1,36 @@
+{
+    "accuracy": 0.9063245823389021,
+    "precision": 0.8356164383561644,
+    "recall_stockout_class": 0.9640804597701149,
+    "f1_score": 0.895263509006004,
+    "roc_auc": 0.9718933262960356,
+    "pr_auc": 0.9616870202857352,
+    "confusion_matrix": {
+        "true_negatives": 1696,
+        "false_positives": 264,
+        "false_negatives": 50,
+        "true_positives": 1342
+    },
+    "train_samples": 13384,
+    "test_samples": 3352,
+    "train_positive_rate": 0.40010460251046026,
+    "test_positive_rate": 0.4152744630071599,
+    "prediction_horizon_days": 14,
+    "model_type": "RandomForestClassifier(n_estimators=100, max_depth=6, class_weight='balanced')",
+    "feature_importances": {
+        "consumption_to_stock_ratio": 0.28878616663757495,
+        "estimated_days_of_stock": 0.264652150753498,
+        "days_since_last_replenishment": 0.1446719409315922,
+        "stock_change_7d": 0.07522352847308324,
+        "current_stock": 0.057315789435712465,
+        "consumption_7d_mean": 0.033619329799595685,
+        "consumption_14d_mean": 0.026903267727384005,
+        "consumption_30d_mean": 0.02685627574120825,
+        "last_replenishment_qty": 0.020044056145309033,
+        "stock_std_14d": 0.017195425252955403,
+        "stock_min_14d": 0.013009895791141065,
+        "stock_max_14d": 0.011645940583237787,
+        "consumption_velocity": 0.011129589189432097,
+        "consumption_7d_std": 0.00894664353827583
+    }
+}

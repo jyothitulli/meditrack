@@ -1,0 +1,50 @@
+================================================================================
+MEDITRACK - BASELINE MODEL EVALUATION REPORT (FIRST 30% MILESTONE)
+================================================================================
+Prediction Target: is_stockout_next_14d (Stock-out within next 14 days)
+Model Algorithm:   RandomForestClassifier(n_estimators=100, max_depth=6, class_weight='balanced')
+Evaluation Set:    Chronological Hold-Out Test Set (Zero Temporal Leakage)
+Date Range:        2018-08-02 to 2019-09-24
+Total Test Count:  3352 instances
+
+--------------------------------------------------------------------------------
+CLASSIFICATION PERFORMANCE METRICS:
+--------------------------------------------------------------------------------
+Accuracy:                 0.9063 (90.63%)
+Precision (Stockout):     0.8356 (83.56%)
+Recall (Stockout Class):  0.9641 (96.41%)
+F1-Score (Stockout):      0.8953
+ROC-AUC:                  0.9719
+PR-AUC:                   0.9617
+
+--------------------------------------------------------------------------------
+CONFUSION MATRIX:
+--------------------------------------------------------------------------------
+True Negatives  (Adequate Stock correctly predicted): 1696
+False Positives (False Alarm early warnings):         264
+False Negatives (Missed Stock-out emergencies):       50
+True Positives  (Stock-outs correctly alerted):       1342
+
+--------------------------------------------------------------------------------
+GLOBAL FEATURE IMPORTANCES (GINI IMPURITY DECREASE):
+--------------------------------------------------------------------------------
+  - consumption_to_stock_ratio     : 0.2888 (28.88%)
+  - estimated_days_of_stock        : 0.2647 (26.47%)
+  - days_since_last_replenishment  : 0.1447 (14.47%)
+  - stock_change_7d                : 0.0752 (7.52%)
+  - current_stock                  : 0.0573 (5.73%)
+  - consumption_7d_mean            : 0.0336 (3.36%)
+  - consumption_14d_mean           : 0.0269 (2.69%)
+  - consumption_30d_mean           : 0.0269 (2.69%)
+  - last_replenishment_qty         : 0.0200 (2.00%)
+  - stock_std_14d                  : 0.0172 (1.72%)
+  - stock_min_14d                  : 0.0130 (1.30%)
+  - stock_max_14d                  : 0.0116 (1.16%)
+  - consumption_velocity           : 0.0111 (1.11%)
+  - consumption_7d_std             : 0.0089 (0.89%)
+================================================================================
+NOTE ON ACADEMIC INTERPRETATION:
+- Recall is prioritized because failing to detect an imminent medicine stockout 
+  has severe clinical implications compared to manageable false alarms.
+- These results reflect actual chronological validation without data leakage.
+================================================================================

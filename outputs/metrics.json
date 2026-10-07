@@ -1,0 +1,36 @@
+{
+    "accuracy": 0.6541999437265978,
+    "precision": 0.29753893482022686,
+    "recall_stockout_class": 0.8195419038792533,
+    "f1_score": 0.4365765066826533,
+    "roc_auc": 0.8014263452456458,
+    "pr_auc": 0.4485737591545993,
+    "confusion_matrix": {
+        "true_negatives": 48072,
+        "false_positives": 29228,
+        "false_negatives": 2726,
+        "true_positives": 12380
+    },
+    "train_samples": 337727,
+    "test_samples": 92406,
+    "train_positive_rate": 0.13247090105321754,
+    "test_positive_rate": 0.16347423327489558,
+    "prediction_horizon": "Next Monthly Reporting Cycle (1 Month)",
+    "model_type": "RandomForestClassifier(n_estimators=100, max_depth=8, class_weight='balanced')",
+    "feature_importances": {
+        "estimated_days_of_stock": 0.3375377704487049,
+        "stock_to_consumption_ratio": 0.25747210523548875,
+        "historical_stockout_rate": 0.11596961173364888,
+        "current_stock": 0.09842701106050687,
+        "open_balance": 0.06212254920417484,
+        "consumption_roll6_mean": 0.02598012290175276,
+        "consumption_roll3_mean": 0.020335532836532912,
+        "current_consumption": 0.02010835777599281,
+        "stock_change_1m": 0.017055132480864432,
+        "consumption_roll3_std": 0.015872100348870915,
+        "district_encoded": 0.011984791304428217,
+        "current_stockout": 0.008087339619753485,
+        "current_received": 0.007424419493761439,
+        "facility_type_encoded": 0.0016231555555186073
+    }
+}

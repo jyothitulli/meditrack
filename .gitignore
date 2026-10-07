@@ -1,0 +1,43 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Large Generated Artifacts (reproduced automatically via python run_pipeline.py)
+data/processed/*.csv
+data/s2_raw/S2_Dhis2Data.csv
+data/s2_raw/test_s2.zip
+data/s2_raw/__MACOSX/
+archive/kaggle_baseline/data/processed/*.csv
+
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
