@@ -1,4 +1,4 @@
-﻿"""
+"""
 MediTrack Configuration Module (S2 Dataset)
 Contains project paths, feature lists, target definitions, risk thresholds, and metadata.
 """
@@ -11,6 +11,8 @@ RAW_S2_PATH = DATA_DIR / "s2_raw" / "S2_Dhis2Data.csv"
 FACILITY_METADATA_PATH = DATA_DIR / "s2_raw" / "S1.csv"
 PROCESSED_DATA_PATH = DATA_DIR / "processed" / "processed_inventory.csv"
 FEATURES_DATA_PATH = DATA_DIR / "processed" / "features_dataset.csv"
+FEATURES_PARQUET_PATH = DATA_DIR / "processed" / "features_dataset.parquet"
+FEATURES_GZ_PATH = DATA_DIR / "processed" / "features_dataset.csv.gz"
 
 MODELS_DIR = PROJECT_ROOT / "models"
 MODEL_SAVE_PATH = MODELS_DIR / "baseline_rf_model.joblib"

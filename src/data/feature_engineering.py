@@ -1,4 +1,4 @@
-﻿"""
+"""
 MediTrack Feature Engineering Module (S2 Dataset)
 Constructs leakage-free temporal features and future 1-month stockout target labels.
 """
@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.utils.config import (
     PROCESSED_DATA_PATH,
     FEATURES_DATA_PATH,
+    FEATURES_PARQUET_PATH,
     FEATURE_COLUMNS,
     TARGET_COLUMN
 )
@@ -83,6 +84,12 @@ def build_feature_dataset(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     final_df.to_csv(output_path, index=False)
     print(f"[FEATURES] Saved engineered feature dataset to: {output_path}")
+    
+    try:
+        final_df.to_parquet(FEATURES_PARQUET_PATH, index=False)
+        print(f"[FEATURES] Saved compressed parquet feature dataset to: {FEATURES_PARQUET_PATH}")
+    except Exception as e:
+        print(f"[FEATURES] Warning: Could not save parquet: {e}")
     
     # Summary of labeled records
     labeled_df = final_df.dropna(subset=[TARGET_COLUMN])

@@ -1,4 +1,4 @@
-﻿"""
+"""
 MediTrack Baseline Model Training & Evaluation Module (S2 Dataset)
 Enforces strict chronological train/test split, trains Random Forest baseline,
 computes evaluation metrics, and persists artifacts.
@@ -27,6 +27,7 @@ from sklearn.metrics import (
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.utils.config import (
     FEATURES_DATA_PATH,
+    FEATURES_PARQUET_PATH,
     MODEL_SAVE_PATH,
     METADATA_SAVE_PATH,
     METRICS_PATH,
@@ -254,11 +255,14 @@ def run_training():
     """
     End-to-end execution of train/test split, model training, evaluation, and persistence.
     """
-    print(f"[TRAIN] Loading features from: {FEATURES_DATA_PATH}")
-    if not FEATURES_DATA_PATH.exists():
-        raise FileNotFoundError(f"Feature dataset not found at: {FEATURES_DATA_PATH}")
-        
-    df = pd.read_csv(FEATURES_DATA_PATH)
+    if FEATURES_PARQUET_PATH.exists():
+        print(f"[TRAIN] Loading features from parquet: {FEATURES_PARQUET_PATH}")
+        df = pd.read_parquet(FEATURES_PARQUET_PATH)
+    elif FEATURES_DATA_PATH.exists():
+        print(f"[TRAIN] Loading features from: {FEATURES_DATA_PATH}")
+        df = pd.read_csv(FEATURES_DATA_PATH)
+    else:
+        raise FileNotFoundError(f"Feature dataset not found at: {FEATURES_PARQUET_PATH} or {FEATURES_DATA_PATH}")
     
     print("[TRAIN] Performing chronological train/test split...")
     train_df, test_df, max_train_dt, min_test_dt = perform_chronological_split(df)

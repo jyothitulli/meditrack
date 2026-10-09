@@ -17,6 +17,8 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.utils.config import (
     FEATURES_DATA_PATH,
+    FEATURES_PARQUET_PATH,
+    FEATURES_GZ_PATH,
     MODEL_SAVE_PATH,
     METRICS_PATH,
     CONFUSION_MATRIX_PATH,
@@ -75,9 +77,14 @@ st.markdown("""
 
 @st.cache_data
 def load_historical_data():
-    if not FEATURES_DATA_PATH.exists():
+    if FEATURES_PARQUET_PATH.exists():
+        df = pd.read_parquet(FEATURES_PARQUET_PATH)
+    elif FEATURES_GZ_PATH.exists():
+        df = pd.read_csv(FEATURES_GZ_PATH, compression="gzip")
+    elif FEATURES_DATA_PATH.exists():
+        df = pd.read_csv(FEATURES_DATA_PATH)
+    else:
         return None
-    df = pd.read_csv(FEATURES_DATA_PATH)
     df["date"] = pd.to_datetime(df["date"])
     return df
 
