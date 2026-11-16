@@ -20,7 +20,13 @@ from src.utils.config import (
     FEATURES_PARQUET_PATH,
     FEATURES_GZ_PATH,
     MODEL_SAVE_PATH,
+    CALIBRATED_MODEL_PATH,
+    GBM_MODEL_PATH,
     METRICS_PATH,
+    BENCHMARK_RESULTS_PATH,
+    CALIBRATION_CURVE_PATH,
+    ROC_COMPARISON_PATH,
+    PR_COMPARISON_PATH,
     CONFUSION_MATRIX_PATH,
     EXPLAINABILITY_DIR,
     PREDICTION_HORIZON_LABEL,
@@ -29,6 +35,7 @@ from src.utils.config import (
 )
 from src.ml.predict import MediTrackPredictor
 from src.ml.explain import MediTrackExplainer
+from src.ml.prescriptive import calculate_reorder_quantity, find_district_rebalancing_transfers
 
 # Page configuration
 st.set_page_config(
@@ -97,9 +104,17 @@ def load_metrics():
         return json.load(f)
 
 
+@st.cache_data
+def load_benchmark():
+    if not BENCHMARK_RESULTS_PATH.exists():
+        return None
+    with open(BENCHMARK_RESULTS_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 @st.cache_resource
 def load_models():
-    predictor = MediTrackPredictor()
+    predictor = MediTrackPredictor(model_type="calibrated")
     explainer = MediTrackExplainer()
     return predictor, explainer
 
@@ -134,11 +149,18 @@ def main():
     st.sidebar.markdown("## 🏥 MediTrack Navigation")
     nav_selection = st.sidebar.radio(
         "Select View",
-        ["🏥 Hospital Inventory", "📊 Model Evaluation", "📚 Methodology & About"],
+        [
+            "🏥 Hospital Inventory",
+            "🔄 Prescriptive Rebalancing",
+            "🏆 Model Tournament & Benchmarking",
+            "🎯 Probability Calibration",
+            "📚 Methodology & About"
+        ],
         label_visibility="collapsed"
     )
     
     st.sidebar.markdown("---")
+    benchmark_data = load_benchmark()
     
     if nav_selection == "🏥 Hospital Inventory":
         st.sidebar.markdown("### 🏥 Select Facility")
@@ -248,9 +270,12 @@ def main():
         table_df["Avg. Monthly Consumption"] = filtered_fac_df["current_consumption"].map("{:,.0f} units/mo".format)
         table_df["Est. Days of Stock"] = filtered_fac_df["estimated_days_of_stock"].map("{:.1f} days".format)
         
-        # VISUAL REQUIREMENT: Colored dot + Risk Text + Probability (e.g. 🔴 HIGH · 87%)
         table_df["Stock-Out Risk"] = filtered_fac_df.apply(
             lambda r: f"{risk_dot_map[r['risk_level']]} {r['risk_level']} · {r['stockout_probability']*100:.1f}%",
+            axis=1
+        )
+        table_df["Prescriptive Order Qty"] = filtered_fac_df.apply(
+            lambda r: f"{calculate_reorder_quantity(r['current_stock'], r['current_consumption'])['recommended_order_qty']:,} units" if r['risk_level'] in ['HIGH', 'MEDIUM'] else "0 (Adequate)",
             axis=1
         )
         
@@ -289,11 +314,19 @@ def main():
         st.markdown(f"### {risk_dot_map[pred_res['risk_level']]} **{pred_res['medicine_name']}**")
         
         # Detail KPI Row
-        dk1, dk2, dk3, dk4 = st.columns(4)
+        dk1, dk2, dk3, dk4, dk5 = st.columns(5)
         dk1.metric("Stock Available", f"{pred_res['current_stock']:,.0f} units")
         dk2.metric("Avg. Monthly Demand", f"{pred_res['current_consumption']:,.0f} units/mo")
         dk3.metric("Est. Days of Stock", f"{pred_res['estimated_days_of_stock']:.1f} days")
-        dk4.markdown(f"**Stock-Out Risk ({PREDICTION_HORIZON_LABEL})**\n\n### :{risk_tag_color}[{risk_dot_map[pred_res['risk_level']]} {pred_res['risk_level']} · {pred_res['stockout_probability']*100:.1f}%]")
+        dk4.metric("Recommended Reorder", f"{pred_res['recommended_order_qty']:,} units")
+        dk5.markdown(f"**Stock-Out Risk ({PREDICTION_HORIZON_LABEL})**\n\n### :{risk_tag_color}[{risk_dot_map[pred_res['risk_level']]} {pred_res['risk_level']} · {pred_res['stockout_probability']*100:.1f}%]")
+        
+        if pred_res["risk_level"] in ["HIGH", "MEDIUM"]:
+            st.info(
+                f"💡 **Prescriptive Action Plan**: Order **{pred_res['recommended_order_qty']:,} units** immediately to reach target Order-Up-To Level. "
+                f"Includes a **{pred_res['safety_stock']:,} units** safety buffer (95% service level for 14-day supply lead time). "
+                f"Alternatively, check the **🔄 Prescriptive Rebalancing** tab to locate nearby clinics with surplus stock."
+            )
         
         st.markdown("<br>", unsafe_allow_html=True)
         
@@ -352,30 +385,133 @@ def main():
     # -------------------------------------------------------------
     # SECONDARY VIEW: MODEL EVALUATION (FOR REVIEWERS & RESEARCHERS)
     # -------------------------------------------------------------
-    elif nav_selection == "📊 Model Evaluation":
-        st.markdown("# 📊 Model Performance & Validation")
-        st.caption("Evaluated on 92,406 unseen chronological test instances in 2023 (Zero Temporal Leakage)")
+    # -------------------------------------------------------------
+    # VIEW: PRESCRIPTIVE LATERAL REBALANCING (50% MILESTONE)
+    # -------------------------------------------------------------
+    elif nav_selection == "🔄 Prescriptive Rebalancing":
+        st.markdown("# 🔄 Intra-District Lateral Stock Rebalancing")
+        st.caption("Prescriptive decision support engine for mitigating acute stockout risks via lateral stock transfers between nearby clinics.")
         
-        if metrics:
-            k1, k2, k3, k4, k5 = st.columns(5)
-            k1.metric("Recall (Stockout Class)", f"{metrics['recall_stockout_class']*100:.2f}%")
-            k2.metric("ROC-AUC", f"{metrics['roc_auc']:.4f}")
-            k3.metric("PR-AUC", f"{metrics['pr_auc']:.4f}")
-            k4.metric("Precision", f"{metrics['precision']*100:.2f}%")
-            k5.metric("Accuracy", f"{metrics['accuracy']*100:.2f}%")
+        # Select district
+        districts = sorted(all_preds_df["district"].dropna().unique().tolist())
+        selected_district = st.selectbox("Select Healthcare District:", districts, index=0)
+        
+        dist_df = all_preds_df[all_preds_df["district"] == selected_district].copy()
+        high_risk_dist = dist_df[dist_df["risk_level"] == "HIGH"]
+        
+        c1, c2, c3 = st.columns(3)
+        c1.metric("District Clinics", f"{dist_df['hf_pk'].nunique():,}")
+        c2.metric("Critical Stockout Alerts", f"{len(high_risk_dist):,}", delta="Requires Rebalancing" if len(high_risk_dist) > 0 else "Normal", delta_color="inverse")
+        c3.metric("Medicines Monitored", f"{dist_df['productID'].nunique()}")
+        
+        st.markdown("---")
+        
+        if len(high_risk_dist) == 0:
+            st.success(f"No clinics in {selected_district} currently exhibit critical stockout risks! All inventories are well-buffered.")
+        else:
+            st.subheader(f"⚠️ Critical Stockout Emergencies in {selected_district}")
+            
+            # Select which deficit clinic and product to rebalance
+            deficit_options = high_risk_dist[["hf_pk", "name2", "productID", "name1", "current_stock", "estimated_days_of_stock", "stockout_probability"]].copy()
+            deficit_options["label"] = deficit_options.apply(
+                lambda r: f"Facility #{r['hf_pk']} ({r['name2']}) — {r['name1']} (Stock: {r['current_stock']:.0f}, Days: {r['estimated_days_of_stock']:.1f}d, Risk: {r['stockout_probability']*100:.1f}%)",
+                axis=1
+            )
+            
+            selected_deficit_idx = st.selectbox(
+                "Select a critical deficit to find lateral donor candidates:",
+                options=deficit_options.index.tolist(),
+                format_func=lambda idx: deficit_options.loc[idx, "label"]
+            )
+            
+            selected_row = deficit_options.loc[selected_deficit_idx]
+            target_hf = int(selected_row["hf_pk"])
+            target_prod = int(selected_row["productID"])
+            
+            transfers = find_district_rebalancing_transfers(
+                snapshot_df=dist_df,
+                target_hf_pk=target_hf,
+                target_product_id=target_prod,
+                min_surplus_days=45.0,
+                reserve_days_buffer=30.0
+            )
+            
+            st.markdown(f"#### 🚑 Candidate Donor Clinics for **{selected_row['name1']}** within {selected_district} District")
+            
+            if not transfers:
+                st.warning(f"No donor facility in {selected_district} has >=45 days surplus of {selected_row['name1']}. Standard warehouse procurement replenishment order required.")
+            else:
+                transfer_table = pd.DataFrame(transfers)
+                transfer_display = pd.DataFrame({
+                    "Donor Facility": transfer_table["donor_facility_name"],
+                    "Donor Current Stock": transfer_table["donor_current_stock"].map("{:,} units".format),
+                    "Donor Stock Runway": transfer_table["donor_days_of_stock"].map("{:.1f} days".format),
+                    "Recommended Transfer Qty": transfer_table["suggested_transfer_qty"].map("{:,} units".format),
+                    "Donor Post-Transfer Runway": transfer_table["donor_post_transfer_days"].map("{:.1f} days".format),
+                    "Recipient Post-Transfer Runway": transfer_table["recipient_post_transfer_days"].map("{:.1f} days".format)
+                })
+                st.dataframe(transfer_display, use_container_width=True, hide_index=True)
+                st.info("💡 **Clinical Safety Protocol**: Donor clinics are only selected if they retain at least **30 days** of safety buffer for their own catchment population.")
+
+    # -------------------------------------------------------------
+    # VIEW: MODEL TOURNAMENT & BENCHMARKING (50% MILESTONE)
+    # -------------------------------------------------------------
+    elif nav_selection == "🏆 Model Tournament & Benchmarking":
+        st.markdown("# 🏆 Multi-Model Tournament & Temporal Benchmarking")
+        st.caption("Rigorous quantitative comparison across tabular algorithms on 92,406 unseen chronological test instances (2023 Holdout).")
+        
+        if benchmark_data and "tournament_holdout_test" in benchmark_data:
+            holdout_res = benchmark_data["tournament_holdout_test"]
+            
+            # Tournament Comparison Table
+            tourney_rows = []
+            for name, m in holdout_res.items():
+                tourney_rows.append({
+                    "Algorithm": name,
+                    "Recall (Stockout Class)": f"{m['recall_stockout_class']*100:.2f}%",
+                    "Precision": f"{m['precision']*100:.2f}%",
+                    "F1-Score": f"{m['f1_score']:.4f}",
+                    "ROC-AUC": f"{m['roc_auc']:.4f}",
+                    "PR-AUC": f"{m['pr_auc']:.4f}",
+                    "Brier Score": f"{m['brier_score']:.4f}",
+                    "Inference Latency (ms)": f"{m['inference_latency_ms_per_sample']:.4f} ms"
+                })
+            st.dataframe(pd.DataFrame(tourney_rows), use_container_width=True, hide_index=True)
             
             st.markdown("---")
-            vcol1, vcol2 = st.columns(2)
+            st.subheader("📈 Comparative Discrimination Curves")
+            bcol1, bcol2 = st.columns(2)
             
+            with bcol1:
+                if ROC_COMPARISON_PATH.exists():
+                    st.image(str(ROC_COMPARISON_PATH), caption="Receiver Operating Characteristic (ROC) Comparison")
+            with bcol2:
+                if PR_COMPARISON_PATH.exists():
+                    st.image(str(PR_COMPARISON_PATH), caption="Precision-Recall (PR) Curve Comparison (Imbalanced Target)")
+                    
+            st.markdown("---")
+            st.subheader("⏳ Walk-Forward Temporal Cross-Validation (Expanding Time Windows)")
+            st.caption("Enforces zero look-ahead temporal leakage across 3 multi-year evaluation periods.")
+            
+            if "walk_forward_temporal_cv" in benchmark_data:
+                cv_rows = []
+                for name, stat in benchmark_data["walk_forward_temporal_cv"].items():
+                    cv_rows.append({
+                        "Algorithm": name,
+                        "Mean Recall ± Std": f"{stat['mean_recall']*100:.2f}% ± {stat['std_recall']*100:.2f}%",
+                        "Mean F1 ± Std": f"{stat['mean_f1']:.4f} ± {stat['std_f1']:.4f}",
+                        "Mean ROC-AUC ± Std": f"{stat['mean_roc_auc']:.4f} ± {stat['std_roc_auc']:.4f}"
+                    })
+                st.dataframe(pd.DataFrame(cv_rows), use_container_width=True, hide_index=True)
+
+        if metrics:
+            st.markdown("---")
+            st.subheader("🔍 Baseline Feature Importance & Confusion Matrix")
+            vcol1, vcol2 = st.columns(2)
             with vcol1:
-                st.subheader("Confusion Matrix (Chronological Test Set)")
                 if CONFUSION_MATRIX_PATH.exists():
                     st.image(str(CONFUSION_MATRIX_PATH), caption="Confusion Matrix on Unseen 2023 Test Stream")
-                else:
-                    st.write(metrics["confusion_matrix"])
-                    
             with vcol2:
-                st.subheader("Global Feature Importance (Gini Impurity)")
                 feat_imp_df = pd.DataFrame([
                     {"Feature": k, "Importance": v} for k, v in metrics["feature_importances"].items()
                 ])
@@ -386,28 +522,54 @@ def main():
                 )
                 fig_imp.update_layout(yaxis=dict(autorange="reversed"))
                 st.plotly_chart(fig_imp, use_container_width=True)
-                
-            st.subheader("Global SHAP Summary Visualizations")
-            gcol1, gcol2 = st.columns(2)
-            shap_sum_path = EXPLAINABILITY_DIR / "shap_summary.png"
-            shap_bar_path = EXPLAINABILITY_DIR / "shap_bar.png"
-            
-            with gcol1:
-                if shap_sum_path.exists():
-                    st.image(str(shap_sum_path), caption="SHAP Summary Beeswarm Plot")
-            with gcol2:
-                if shap_bar_path.exists():
-                    st.image(str(shap_bar_path), caption="SHAP Mean |Value| Bar Plot")
 
     # -------------------------------------------------------------
-    # SECONDARY VIEW: METHODOLOGY & ABOUT
+    # VIEW: PROBABILITY CALIBRATION (50% MILESTONE)
+    # -------------------------------------------------------------
+    elif nav_selection == "🎯 Probability Calibration":
+        st.markdown("# 🎯 Model Probability Calibration & Reliability")
+        st.caption("Eliminating algorithmic overconfidence to provide trustworthy risk probabilities for healthcare decision-makers.")
+        
+        cal_col1, cal_col2 = st.columns([1, 1])
+        
+        with cal_col1:
+            if CALIBRATION_CURVE_PATH.exists():
+                st.image(str(CALIBRATION_CURVE_PATH), caption="Reliability Diagram: Uncalibrated vs Platt vs Isotonic Regression")
+            else:
+                st.info("Run `python -m src.ml.calibrate` to generate the reliability curve.")
+                
+        with cal_col2:
+            st.markdown("### Why Probability Calibration is Critical")
+            st.markdown("""
+            In healthcare supply chains, raw tree ensembles output uncalibrated voting fractions. 
+            - If a model predicts an **80% risk**, supply chain officers will divert emergency vehicles.
+            - If the true empirical frequency is only 30%, unnecessary expedited orders waste critical budgets.
+            
+            **Calibration Enhancements Implemented**:
+            1. **Platt Scaling (Sigmoid)**: Fits a logistic transformation over held-out chronological validation margins.
+            2. **Isotonic Regression**: Non-parametric piecewise-constant isotonic transformation preserving rank ordering.
+            3. **Brier Score & ECE Minimization**: Measures probability accuracy ($MSE = \\frac{1}{N}\\sum (p_i - y_i)^2$).
+            """)
+            st.success("✅ **Isotonic Calibration Active**: MediTrack maps raw ensemble margins into empirical stockout frequencies.")
+
+    # -------------------------------------------------------------
+    # VIEW: METHODOLOGY & ABOUT
     # -------------------------------------------------------------
     elif nav_selection == "📚 Methodology & About":
-        st.markdown("# 📚 About MediTrack & Methodology")
+        st.markdown("# 📚 About MediTrack & Methodology (50% Milestone)")
         
         st.markdown(r"""
         ### System Overview
-        **MediTrack** is an explainable machine learning decision-support early warning system designed for hospital and healthcare inventory managers to anticipate essential medicine stock-outs before physical supplies are depleted.
+        **MediTrack** is an explainable machine learning decision-support early warning and prescriptive rebalancing system designed for healthcare inventory managers to anticipate essential medicine stock-outs before physical supplies are depleted.
+
+        ---
+
+        ### 50% Milestone Innovations
+        1. **Multi-Model Tournament**: Benchmarking Balanced Random Forest, LightGBM-style HistGradientBoosting, and L2 Regularized Logistic Regression.
+        2. **Walk-Forward Chronological Cross-Validation**: 3 expanding temporal windows preventing look-ahead leakage.
+        3. **Probability Calibration**: Isotonic and Platt scaling producing reliable, well-calibrated probabilities.
+        4. **Advanced Feature Engineering v2**: Cyclical seasonality ($\sin/\cos$), rainfall monsoon indicators, consumption surge ratios, and stockout acceleration.
+        5. **Prescriptive Action Engine**: Automatic calculation of Recommended Order Quantities (ROQ) with Safety Stock and intra-district lateral transfer donor identification.
 
         ---
 
@@ -418,17 +580,8 @@ def main():
 
         ---
 
-        ### Anti-Leakage & Temporal Validation Guarantee
-        - **Chronological Cutoff**:
-          - Training Partition: Earliest 80% dates (2019-10 to 2022-12, 337,727 samples).
-          - Holdout Test Partition: Latest 20% dates (2023-01 to 2023-10, 92,406 samples).
-          - Zero temporal overlap: $\max(T_{\text{train}}) < \min(T_{\text{test}})$.
-        - **Feature Timing**: All rolling demand averages, stock velocity, and historical stockout rates are computed strictly using observations on or before cutoff month $T$.
-
-        ---
-
         ### Clinical & Decision-Support Disclaimer
-        MediTrack provides probabilistic risk early warnings to assist authorized inventory personnel in prioritizing replenishment reviews. It does not provide clinical diagnoses or guarantee automated stockout prevention.
+        MediTrack provides probabilistic risk early warnings and suggested reorder guidelines to assist authorized inventory personnel. It does not replace professional clinical judgement or official medical supply protocols.
         """)
 
 

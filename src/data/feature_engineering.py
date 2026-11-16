@@ -47,7 +47,16 @@ def compute_group_features(group: pd.DataFrame) -> pd.DataFrame:
     # 4. Expanding historical stockout frequency
     df["historical_stockout_rate"] = df["stockout"].expanding(min_periods=1).mean()
     
-    # 5. Future Target Label (Next Month T+1)
+    # 5. Advanced 50% Milestone Features: Seasonality, Volatility, Acceleration (Strictly t <= T)
+    month = df["date"].dt.month
+    df["is_rainy_season"] = month.isin([5, 6, 7, 8, 9, 10]).astype(int)
+    df["sin_month"] = np.sin(2.0 * np.pi * month / 12.0)
+    df["cos_month"] = np.cos(2.0 * np.pi * month / 12.0)
+    df["consumption_surge_ratio"] = df["current_consumption"] / (df["consumption_roll6_mean"] + 1e-4)
+    stockout_roll3 = df["stockout"].rolling(window=3, min_periods=1).mean()
+    df["stockout_acceleration"] = stockout_roll3 - df["historical_stockout_rate"]
+    
+    # 6. Future Target Label (Next Month T+1)
     df[TARGET_COLUMN] = df["stockout"].shift(-1)
     
     return df

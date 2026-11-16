@@ -16,6 +16,8 @@ FEATURES_GZ_PATH = DATA_DIR / "processed" / "features_dataset.csv.gz"
 
 MODELS_DIR = PROJECT_ROOT / "models"
 MODEL_SAVE_PATH = MODELS_DIR / "baseline_rf_model.joblib"
+CALIBRATED_MODEL_PATH = MODELS_DIR / "calibrated_model.joblib"
+GBM_MODEL_PATH = MODELS_DIR / "gradient_boosting_model.joblib"
 METADATA_SAVE_PATH = MODELS_DIR / "model_metadata.json"
 
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
@@ -23,6 +25,12 @@ EXPLAINABILITY_DIR = OUTPUTS_DIR / "explainability"
 METRICS_PATH = OUTPUTS_DIR / "metrics.json"
 EVALUATION_REPORT_PATH = OUTPUTS_DIR / "evaluation_report.txt"
 CONFUSION_MATRIX_PATH = OUTPUTS_DIR / "confusion_matrix.png"
+BENCHMARK_RESULTS_PATH = OUTPUTS_DIR / "model_benchmark.json"
+BENCHMARK_REPORT_PATH = OUTPUTS_DIR / "model_benchmark_report.txt"
+CALIBRATION_CURVE_PATH = OUTPUTS_DIR / "calibration_curve.png"
+ROC_COMPARISON_PATH = OUTPUTS_DIR / "roc_comparison.png"
+PR_COMPARISON_PATH = OUTPUTS_DIR / "pr_comparison.png"
+REBALANCING_SUGGESTIONS_PATH = OUTPUTS_DIR / "rebalancing_suggestions.json"
 
 # Reproducibility
 RANDOM_SEED = 42
@@ -31,7 +39,7 @@ RANDOM_SEED = 42
 PREDICTION_HORIZON_LABEL = "Next Monthly Reporting Cycle (1 Month)"
 TRAIN_SPLIT_RATIO = 0.80
 
-# Feature Names (Strictly Historical t <= T)
+# Feature Names (Strictly Historical t <= T, v2 Feature Set)
 FEATURE_COLUMNS = [
     "current_stock",
     "open_balance",
@@ -46,7 +54,13 @@ FEATURE_COLUMNS = [
     "estimated_days_of_stock",
     "historical_stockout_rate",
     "facility_type_encoded",
-    "district_encoded"
+    "district_encoded",
+    # Advanced 50% Milestone Features (Seasonality, Surge, Acceleration)
+    "is_rainy_season",
+    "sin_month",
+    "cos_month",
+    "consumption_surge_ratio",
+    "stockout_acceleration"
 ]
 
 TARGET_COLUMN = "is_stockout_next_month"

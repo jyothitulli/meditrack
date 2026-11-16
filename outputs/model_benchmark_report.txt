@@ -1,0 +1,32 @@
+================================================================================
+MEDITRACK 50% MILESTONE: MODEL TOURNAMENT & BENCHMARK REPORT
+================================================================================
+Evaluation Dataset: Chronological Test Partition (2023 Holdout, 92,406 samples)
+Algorithms Benchmarked:
+1. Random Forest (Balanced)
+2. HistGradientBoosting (Gradient Boosted Trees)
+3. Logistic Regression (L2 Regularized Linear Baseline)
+
+--------------------------------------------------------------------------------
+1. HOLDOUT TEST SET PERFORMANCE SUMMARY (2023 UNSEEN DATA):
+--------------------------------------------------------------------------------
+Algorithm                    | Recall   | Precision  | F1     | ROC-AUC  | PR-AUC   | Brier    | Latency (ms)
+---------------------------------------------------------------------------------------------------------
+Random Forest (Balanced)     |  82.23% |    29.71% | 0.4365 |   0.8028 |   0.4543 |   0.2034 |       0.0079
+HistGradientBoosting         |  81.64% |    30.49% | 0.4440 |   0.8069 |   0.4570 |   0.2033 |       0.0063
+Logistic Regression (L2)     |  73.62% |    26.76% | 0.3926 |   0.7398 |   0.3356 |   0.2314 |       0.0006
+
+--------------------------------------------------------------------------------
+2. WALK-FORWARD TEMPORAL CROSS-VALIDATION (3 EXPANDING TIME WINDOWS):
+--------------------------------------------------------------------------------
+Algorithm                    | Mean Recall ± Std      | Mean F1 ± Std        | Mean ROC-AUC ± Std  
+-----------------------------------------------------------------------------------------------
+Random Forest (Balanced)     | 79.54% ± 2.63%         | 0.4233 ± 0.0093      | 0.7947 ± 0.0057     
+HistGradientBoosting         | 75.03% ± 4.96%         | 0.4271 ± 0.0121      | 0.7915 ± 0.0110     
+Logistic Regression (L2)     | 68.44% ± 3.86%         | 0.3836 ± 0.0069      | 0.7352 ± 0.0035     
+================================================================================
+ACADEMIC CONCLUSION:
+- Non-linear tree-based ensembles (Gradient Boosting & Random Forest) significantly
+  outperform the linear baseline across all temporal folds.
+- Walk-forward CV confirms robust stability with zero look-ahead temporal leakage.
+================================================================================

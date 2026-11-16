@@ -14,7 +14,12 @@
         "estimated_days_of_stock",
         "historical_stockout_rate",
         "facility_type_encoded",
-        "district_encoded"
+        "district_encoded",
+        "is_rainy_season",
+        "sin_month",
+        "cos_month",
+        "consumption_surge_ratio",
+        "stockout_acceleration"
     ],
     "target": "is_stockout_next_month",
     "prediction_horizon": "Next Monthly Reporting Cycle (1 Month)",

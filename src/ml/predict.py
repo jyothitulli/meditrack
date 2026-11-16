@@ -1,4 +1,4 @@
-﻿"""
+"""
 MediTrack Prediction & Inference Module (S2 Dataset)
 Generates stockout probabilities, prototype risk categorizations, and facility-level alerts.
 """
@@ -14,21 +14,35 @@ import joblib
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.utils.config import (
     MODEL_SAVE_PATH,
+    CALIBRATED_MODEL_PATH,
+    GBM_MODEL_PATH,
     METADATA_SAVE_PATH,
     FEATURE_COLUMNS,
     get_risk_level
 )
+from src.ml.prescriptive import calculate_reorder_quantity, find_district_rebalancing_transfers
 
 
 class MediTrackPredictor:
     """
     Inference engine for MediTrack early-warning stock-out risk predictions on S2 data.
+    Supports baseline Random Forest, calibrated model, and Gradient Boosting.
     """
-    def __init__(self, model_path: Path = MODEL_SAVE_PATH, metadata_path: Path = METADATA_SAVE_PATH):
+    def __init__(self, model_type: str = "calibrated", model_path: Optional[Path] = None, metadata_path: Path = METADATA_SAVE_PATH):
+        if model_path is None:
+            if model_type == "calibrated" and CALIBRATED_MODEL_PATH.exists():
+                model_path = CALIBRATED_MODEL_PATH
+            elif model_type == "gbm" and GBM_MODEL_PATH.exists():
+                model_path = GBM_MODEL_PATH
+            else:
+                model_path = MODEL_SAVE_PATH
+                
         if not model_path.exists():
             raise FileNotFoundError(f"Trained model not found at: {model_path}. Run training first.")
             
         self.model = joblib.load(model_path)
+        self.model_path = model_path
+        self.model_type = model_type
         self.features = FEATURE_COLUMNS
         
         if metadata_path.exists():
@@ -69,6 +83,13 @@ class MediTrackPredictor:
         pred_class = int(self.model.predict(X)[0])
         risk_lvl = get_risk_level(prob)
         
+        # Prescriptive replenishment recommendation
+        reorder_info = calculate_reorder_quantity(
+            current_stock=float(feature_dict.get("current_stock", 0.0)),
+            monthly_consumption=float(feature_dict.get("consumption_roll3_mean", feature_dict.get("current_consumption", 0.0))),
+            consumption_std=float(feature_dict.get("consumption_roll3_std", 0.0))
+        )
+        
         return {
             "hf_pk": feature_dict.get("hf_pk", "UNKNOWN"),
             "productID": feature_dict.get("productID", "UNKNOWN"),
@@ -81,7 +102,9 @@ class MediTrackPredictor:
             "historical_stockout_rate": float(feature_dict.get("historical_stockout_rate", 0.0)),
             "stockout_probability": round(prob, 4),
             "predicted_stockout": pred_class,
-            "risk_level": risk_lvl
+            "risk_level": risk_lvl,
+            "recommended_order_qty": reorder_info["recommended_order_qty"],
+            "safety_stock": reorder_info["safety_stock"]
         }
 
 

@@ -1,0 +1,81 @@
+{
+    "tournament_holdout_test": {
+        "Random Forest (Balanced)": {
+            "accuracy": 0.652901326753674,
+            "precision": 0.2970820377900024,
+            "recall_stockout_class": 0.8222560571958162,
+            "f1_score": 0.4364677770749877,
+            "roc_auc": 0.802805990748602,
+            "pr_auc": 0.4543054171241318,
+            "brier_score": 0.20342079548028633,
+            "confusion_matrix": {
+                "true_negatives": 47911,
+                "false_positives": 29389,
+                "false_negatives": 2685,
+                "true_positives": 12421
+            },
+            "training_time_seconds": 27.74,
+            "inference_latency_ms_per_sample": 0.0079
+        },
+        "HistGradientBoosting": {
+            "accuracy": 0.6657792784018354,
+            "precision": 0.30493051777854707,
+            "recall_stockout_class": 0.8163643585330332,
+            "f1_score": 0.44401238568445306,
+            "roc_auc": 0.8068602256858777,
+            "pr_auc": 0.4570130531819624,
+            "brier_score": 0.2032785488522461,
+            "confusion_matrix": {
+                "true_negatives": 49190,
+                "false_positives": 28110,
+                "false_negatives": 2774,
+                "true_positives": 12332
+            },
+            "training_time_seconds": 5.66,
+            "inference_latency_ms_per_sample": 0.0063
+        },
+        "Logistic Regression (L2)": {
+            "accuracy": 0.6275458303573361,
+            "precision": 0.2676341058407335,
+            "recall_stockout_class": 0.7361975374023567,
+            "f1_score": 0.3925589932755608,
+            "roc_auc": 0.7397923137041578,
+            "pr_auc": 0.3356194239898489,
+            "brier_score": 0.23138810876207616,
+            "confusion_matrix": {
+                "true_negatives": 46868,
+                "false_positives": 30432,
+                "false_negatives": 3985,
+                "true_positives": 11121
+            },
+            "training_time_seconds": 2.43,
+            "inference_latency_ms_per_sample": 0.0006
+        }
+    },
+    "walk_forward_temporal_cv": {
+        "Random Forest (Balanced)": {
+            "mean_recall": 0.7954451132352602,
+            "std_recall": 0.02633065482901089,
+            "mean_f1": 0.42328431418648954,
+            "std_f1": 0.00933557859456838,
+            "mean_roc_auc": 0.7947108337532035,
+            "std_roc_auc": 0.005725980207087537
+        },
+        "HistGradientBoosting": {
+            "mean_recall": 0.750345306708529,
+            "std_recall": 0.04963739299748691,
+            "mean_f1": 0.4271173997207714,
+            "std_f1": 0.012085679329096153,
+            "mean_roc_auc": 0.7915375607872518,
+            "std_roc_auc": 0.010988336822017171
+        },
+        "Logistic Regression (L2)": {
+            "mean_recall": 0.6844268116432529,
+            "std_recall": 0.03861764890509281,
+            "mean_f1": 0.3836354525155225,
+            "std_f1": 0.006937804735858885,
+            "mean_roc_auc": 0.7351554073018579,
+            "std_roc_auc": 0.0035113810522850817
+        }
+    }
+}
